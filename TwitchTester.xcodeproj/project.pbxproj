@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08EDA036BFF6C0362A9B3D5D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E58C1D02B5F8A73C76CCEDE /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		36F016061B99F8D40087512A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F016051B99F8D40087512A /* AppDelegate.swift */; };
 		36F016081B99F8D40087512A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F016071B99F8D40087512A /* ViewController.swift */; };
 		36F0160B1B99F8D40087512A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36F016091B99F8D40087512A /* Main.storyboard */; };
 		36F0160D1B99F8D40087512A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36F0160C1B99F8D40087512A /* Images.xcassets */; };
 		36F016101B99F8D40087512A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F0160E1B99F8D40087512A /* LaunchScreen.xib */; };
 		36F0161C1B99F8D40087512A /* TwitchTesterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0161B1B99F8D40087512A /* TwitchTesterTests.swift */; };
+		36F016291B99FC8A0087512A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 36F016281B99FC8A0087512A /* Podfile */; };
+		36F0162C1B9A4ABB0087512A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F0162A1B9A4ABB0087512A /* TableViewCell.swift */; };
+		36F0162D1B9A4ABB0087512A /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36F0162B1B9A4ABB0087512A /* TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		034494F08468FC46BCCCECCD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		36F016001B99F8D40087512A /* TwitchTester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitchTester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36F016041B99F8D40087512A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36F016051B99F8D40087512A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +41,11 @@
 		36F016151B99F8D40087512A /* TwitchTesterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwitchTesterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		36F0161A1B99F8D40087512A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36F0161B1B99F8D40087512A /* TwitchTesterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchTesterTests.swift; sourceTree = "<group>"; };
+		36F016281B99FC8A0087512A /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		36F0162A1B9A4ABB0087512A /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		36F0162B1B9A4ABB0087512A /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		8E58C1D02B5F8A73C76CCEDE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFA13C566B998C4D2A39ED6E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08EDA036BFF6C0362A9B3D5D /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,9 +70,12 @@
 		36F015F71B99F8D40087512A = {
 			isa = PBXGroup;
 			children = (
+				36F016281B99FC8A0087512A /* Podfile */,
 				36F016021B99F8D40087512A /* TwitchTester */,
 				36F016181B99F8D40087512A /* TwitchTesterTests */,
 				36F016011B99F8D40087512A /* Products */,
+				F48C31153F6F07C1D5765458 /* Pods */,
+				B8E639F6A4F9EAAE9A37C24A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +97,8 @@
 				36F0160C1B99F8D40087512A /* Images.xcassets */,
 				36F0160E1B99F8D40087512A /* LaunchScreen.xib */,
 				36F016031B99F8D40087512A /* Supporting Files */,
+				36F0162A1B9A4ABB0087512A /* TableViewCell.swift */,
+				36F0162B1B9A4ABB0087512A /* TableViewCell.xib */,
 			);
 			path = TwitchTester;
 			sourceTree = "<group>";
@@ -112,6 +128,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B8E639F6A4F9EAAE9A37C24A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8E58C1D02B5F8A73C76CCEDE /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F48C31153F6F07C1D5765458 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				034494F08468FC46BCCCECCD /* Pods.debug.xcconfig */,
+				FFA13C566B998C4D2A39ED6E /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +152,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 36F0161F1B99F8D40087512A /* Build configuration list for PBXNativeTarget "TwitchTester" */;
 			buildPhases = (
+				7724EFAC58B2E181B4F6CAC6 /* Check Pods Manifest.lock */,
 				36F015FC1B99F8D40087512A /* Sources */,
 				36F015FD1B99F8D40087512A /* Frameworks */,
 				36F015FE1B99F8D40087512A /* Resources */,
+				255D6D6AFA38F16B48D3FE01 /* Embed Pods Frameworks */,
+				CFFE9FE61409C6E70388D844 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,7 +229,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				36F0160B1B99F8D40087512A /* Main.storyboard in Resources */,
+				36F0162D1B9A4ABB0087512A /* TableViewCell.xib in Resources */,
 				36F016101B99F8D40087512A /* LaunchScreen.xib in Resources */,
+				36F016291B99FC8A0087512A /* Podfile in Resources */,
 				36F0160D1B99F8D40087512A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,11 +245,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		255D6D6AFA38F16B48D3FE01 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7724EFAC58B2E181B4F6CAC6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CFFE9FE61409C6E70388D844 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		36F015FC1B99F8D40087512A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36F0162C1B9A4ABB0087512A /* TableViewCell.swift in Sources */,
 				36F016081B99F8D40087512A /* ViewController.swift in Sources */,
 				36F016061B99F8D40087512A /* AppDelegate.swift in Sources */,
 			);
@@ -340,21 +427,33 @@
 		};
 		36F016201B99F8D40087512A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 034494F08468FC46BCCCECCD /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TwitchTester/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		36F016211B99F8D40087512A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFA13C566B998C4D2A39ED6E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TwitchTester/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -411,6 +510,7 @@
 				36F016211B99F8D40087512A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		36F016221B99F8D40087512A /* Build configuration list for PBXNativeTarget "TwitchTesterTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +519,7 @@
 				36F016241B99F8D40087512A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
