@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController, UITableViewDataSource {
 
@@ -15,16 +16,23 @@ class ViewController: UIViewController, UITableViewDataSource {
 
     let CellName = "TableViewCell"
 
+    // om denna är satt så läses alla logo-bilder in direkt
+    // (annars så läses de in när de blir synliga)
+    let getAllLogos = false
+
     // MARK: - viewDidLoad och HTTP-request
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.registerNib(UINib(nibName: CellName, bundle: nil), forCellReuseIdentifier: CellName)
         Alamofire.request(.GET, "https://api.twitch.tv/kraken/games/top",
             parameters: nil, encoding: .URL,
             headers: ["Accept": "application/vnd.twitchtv.v3+json"])
-            .responseJSON { request, response, JSON, error in
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.reloadWithData(JSON)
+            .responseJSON { request, response, json, error in
+                if error == nil {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.reloadWithData(JSON(json!))
+                    }
                 }
         }
     }
@@ -38,22 +46,24 @@ class ViewController: UIViewController, UITableViewDataSource {
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellName, forIndexPath: indexPath) as! TableViewCell
-        let row = rows[indexPath.row]
-        if let image = imageCache[row.logoURL] {
+        let game = games[indexPath.row]
+        if let image = imageCache[game.logoURL] {
             cell.logoImageView.image = image
         } else {
             cell.logoImageView.image = nil
-            Alamofire.request(.GET, row.logoURL).response { _, _, data, _ in
-                if data != nil {
-                    let image = UIImage(data: data!)
-                    self.imageCache[row.logoURL] = image
-                    cell.logoImageView.image = image
+            if !getAllLogos {
+                Alamofire.request(.GET, game.logoURL).response { _, _, data, _ in
+                    if data != nil {
+                        let image = UIImage(data: data!)
+                        self.imageCache[game.logoURL] = image
+                        cell.logoImageView.image = image
+                    }
                 }
             }
         }
-        cell.numChannelsLabel.text = "\(row.numChannels)"
-        cell.numViewersLabel.text = "\(row.numViewers)"
-        cell.nameLabel.text = row.name
+        cell.numChannelsLabel.text = "\(game.numChannels)"
+        cell.numViewersLabel.text = "\(game.numViewers)"
+        cell.nameLabel.text = game.name
         return cell
     }
 
@@ -62,36 +72,52 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rows.count
+        return games.count
     }
 
     // MARK: - Modell
+    // en större modell skulle nog få en egen modul
 
-    // FIXME: här förutsätter jag en massa om json-data, och kraschar om det inte stämmer
-    // bättre vore att använda ett riktigt json-bibliotek (som SwiftyJSON)
-    struct game {
-        init(_ any: AnyObject?) {
-            let data = any as! NSDictionary
-            let game = data["game"] as! NSDictionary
-            self.name = game["name"] as! String
-            self.numChannels = data["channels"] as! Int
-            self.numViewers = data["viewers"] as! Int
-            let logo = game["logo"] as! NSDictionary
-            self.logoURL = logo["large"] as! String
+    struct Game {
+        init(name: String, logoURL: String, numChannels: Int, numViewers: Int) {
+            self.name = name
+            self.logoURL = logoURL
+            self.numChannels = numChannels
+            self.numViewers = numViewers
         }
         var name, logoURL: String
         var numChannels, numViewers: Int
     }
 
-    var rows: [game] = []
+    var games: [Game] = []
 
     var imageCache: [String:UIImage] = [:]
     
-    func reloadWithData(data: AnyObject?) {
-        rows = []
-        if let root = data as? NSDictionary {
-            if let top = root["top"] as? NSArray {
-                rows = map(top) { game($0) }
+    func reloadWithData(data: JSON) {
+        games = []
+        // man kunde skriva loop nedan funktionellt med t.ex. reduce, men detta är nog lättare att läsa
+        for (index: String, subJson: JSON) in data["top"] {
+            let gameJSON = subJson["game"]
+            if let name = gameJSON["name"].string,
+                let logoURL = gameJSON["logo"]["large"].string,
+                let numChannels = subJson["channels"].int,
+                let numViewers = subJson["viewers"].int {
+                    games.append(Game(name: name, logoURL: logoURL,
+                        numChannels: numChannels, numViewers: numViewers))
+            }
+            if getAllLogos {
+                for row in 0..<games.count {
+                    let url = games[row].logoURL
+                    Alamofire.request(.GET, url).response { _, _, data, _ in
+                        if data != nil {
+                            let image = UIImage(data: data!)
+                            self.imageCache[url] = image
+                            dispatch_async(dispatch_get_main_queue()) {
+                                self.tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: row, inSection: 0)], withRowAnimation: .None)
+                            }
+                        }
+                    }
+                }
             }
         }
         tableView.reloadData()
