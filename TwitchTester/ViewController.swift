@@ -16,6 +16,8 @@ class ViewController: UIViewController, UITableViewDataSource {
 
     let CellName = "TableViewCell"
 
+    let gamesURL = "https://api.twitch.tv/kraken/games/top"
+
     // om denna är satt så läses alla logo-bilder in direkt
     // (annars så läses de in när de blir synliga)
     let getAllLogos = false
@@ -25,7 +27,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.registerNib(UINib(nibName: CellName, bundle: nil), forCellReuseIdentifier: CellName)
-        Alamofire.request(.GET, "https://api.twitch.tv/kraken/games/top",
+        Alamofire.request(.GET, gamesURL,
             parameters: nil, encoding: .URL,
             headers: ["Accept": "application/vnd.twitchtv.v3+json"])
             .responseJSON { request, response, json, error in

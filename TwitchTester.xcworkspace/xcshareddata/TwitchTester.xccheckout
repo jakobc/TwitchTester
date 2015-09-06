@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>16E91166-911A-4E70-B4EB-32D7D90CD74A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TwitchTester</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>629A05373437CC70B48E0DF9EF899147DAE359A8</key>
+		<string>github.com:jakobc/TwitchTester.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TwitchTester.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>629A05373437CC70B48E0DF9EF899147DAE359A8</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:jakobc/TwitchTester.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>629A05373437CC70B48E0DF9EF899147DAE359A8</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>629A05373437CC70B48E0DF9EF899147DAE359A8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TwitchTester</string>
+		</dict>
+	</array>
+</dict>
+</plist>
